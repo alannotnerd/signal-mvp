@@ -4,6 +4,13 @@
   "submitted_at": "2026-08-10T08:00:00Z", "submitted_by": "project-team", "version": 1, "status": "approved",
   "website": "https://gameverse.gg", "whitepaper_url": "https://gameverse.gg/whitepaper.pdf",
   "risk": {"overall": "low", "r1_regulatory": "low", "r2_fraud": "low", "r3_integrity": "low", "r4_viability": "low", "r5_economics": "good"},
+  "risk_reasons": {
+    "r1_regulatory": [{"severity": "low", "text": "US + EU legal opinions submitted"}, {"severity": "low", "text": "Sanctions: clean"}],
+    "r2_fraud": [{"severity": "low", "text": "All core wallets verified"}, {"severity": "low", "text": "Trail of Bits audited, all remediated"}, {"severity": "low", "text": "Multisig + timelock on upgrade+mint"}],
+    "r3_integrity": [{"severity": "low", "text": "Vesting contract deployed"}, {"severity": "low", "text": "Concentration: Gini 0.60, all clear"}],
+    "r4_viability": [{"severity": "low", "text": "Product live, $25M raised"}, {"severity": "low", "text": "GitHub: 340 commits/90d, 28 contributors"}, {"severity": "low", "text": "Partnerships: Epic Games, Immutable"}],
+    "r5_economics": [{"severity": "good", "text": "Listed on Bybit"}, {"severity": "good", "text": "Wintermute + GSR as MMs"}, {"severity": "info", "text": "185K Twitter / 95K Discord"}]
+  },
   "flags": [],
   "critical_flags": 0, "high_flags": 0, "medium_flags": 0,
   "r1_regulatory": {"risk": "low", "sanctions": {"status": "clean", "detail": "Screened 20 wallets + 5 team members + 6 investor entities. 0 matches."}, "legal_opinions": {"opinions": [{"firm": "Perkins Coie", "jurisdiction": "US", "topic": "Not a security (utility token)", "date": "2026-06", "verified": true}, {"firm": "DLA Piper", "jurisdiction": "EU", "topic": "MiCA compliance", "date": "2026-07", "verified": true}], "missing": []}, "token_characteristics": {"privacy_enhancing": false, "derivative": false, "debt_characteristics": false, "profit_share": false, "verified_onchain": true}, "entity": {"name": "GameVerse Studios Inc", "jurisdiction": "Delaware, USA", "registration": "DE-9876543", "verified": "self_reported"}},

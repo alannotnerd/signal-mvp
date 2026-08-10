@@ -18,6 +18,33 @@
     "r4_viability": "medium",
     "r5_economics": "info"
   },
+  "risk_reasons": {
+    "r1_regulatory": [
+      {"severity": "critical", "text": "3 wallets on OFAC SDN list"},
+      {"severity": "high", "text": "No US legal opinion"},
+      {"severity": "medium", "text": "KYC not conducted on purchasers"}
+    ],
+    "r2_fraud": [
+      {"severity": "critical", "text": "14-wallet Sybil cluster"},
+      {"severity": "critical", "text": "Unlimited mint by single EOA"},
+      {"severity": "critical", "text": "No smart contract audit"}
+    ],
+    "r3_integrity": [
+      {"severity": "critical", "text": "Single wallet holds 38%"},
+      {"severity": "medium", "text": "45% supply has no lockup"},
+      {"severity": "medium", "text": "Vesting contract not deployed"}
+    ],
+    "r4_viability": [
+      {"severity": "medium", "text": "Team of 8 for L1 blockchain"},
+      {"severity": "medium", "text": "GitHub: moderate activity (67 commits/90d)"},
+      {"severity": "low", "text": "Product: testnet live"}
+    ],
+    "r5_economics": [
+      {"severity": "info", "text": "Pre-launch — no market presence"},
+      {"severity": "info", "text": "Wintermute confirmed as MM"},
+      {"severity": "info", "text": "Community: 45K Twitter / 28K Discord"}
+    ]
+  },
   "flags": [
     {
       "id": "f1",

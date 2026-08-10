@@ -35,7 +35,7 @@ export default function ProjectDetail() {
       </div>
     </div>
 
-    <div className="risk-bar"><RiskBar risk={p.risk} /></div>
+    <div className="risk-bar"><RiskBar risk={p.risk} reasons={p.risk_reasons} /></div>
 
     <div className="flags-section">
       <h3 style={{ fontSize: 14, marginBottom: 10, color: 'var(--text-bright)' }}>

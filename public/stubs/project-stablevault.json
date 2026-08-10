@@ -4,6 +4,13 @@
   "submitted_at": "2026-08-06T11:00:00Z", "submitted_by": "project-team", "version": 1, "status": "in_review",
   "website": "https://stablevault.finance", "whitepaper_url": "https://stablevault.finance/whitepaper.pdf",
   "risk": {"overall": "medium", "r1_regulatory": "medium", "r2_fraud": "low", "r3_integrity": "low", "r4_viability": "medium", "r5_economics": "good"},
+  "risk_reasons": {
+    "r1_regulatory": [{"severity": "medium", "text": "No US legal opinion"}, {"severity": "low", "text": "EU (MiCA) opinion submitted"}],
+    "r2_fraud": [{"severity": "low", "text": "All core wallets verified"}, {"severity": "low", "text": "OpenZeppelin audited, remediated"}],
+    "r3_integrity": [{"severity": "low", "text": "Vesting contract deployed"}, {"severity": "medium", "text": "Treasury 40% governance-only unlock"}],
+    "r4_viability": [{"severity": "medium", "text": "Product in testnet"}, {"severity": "low", "text": "GitHub active (95 commits/90d)"}],
+    "r5_economics": [{"severity": "info", "text": "Wintermute confirmed as MM"}, {"severity": "info", "text": "38K Twitter / 22K Discord"}]
+  },
   "flags": [
     {"id": "f1", "dimension": "R1", "severity": "medium", "title": "No US legal opinion", "detail": "Stablecoin projects face heightened regulatory scrutiny. Project has EU (MiCA) opinion but missing US (Howey + stablecoin-specific) legal analysis.", "recommendation": "Require US legal opinion covering stablecoin regulation before listing."},
     {"id": "f2", "dimension": "R3", "severity": "medium", "title": "Treasury: 40% with governance-only unlock", "detail": "Treasury allocation (40%) is governed by a 3/5 multisig with no time-based lockup. While multisig provides some protection, 40% of supply is effectively liquid at multisig discretion.", "recommendation": "Flag for listing committee. Consider requesting timelock on treasury multisig."}

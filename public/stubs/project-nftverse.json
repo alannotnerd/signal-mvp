@@ -4,6 +4,13 @@
   "submitted_at": "2026-08-05T16:00:00Z", "submitted_by": "project-team", "version": 1, "status": "in_review",
   "website": "https://nftverse.gg", "whitepaper_url": "https://nftverse.gg/whitepaper.pdf",
   "risk": {"overall": "high", "r1_regulatory": "low", "r2_fraud": "high", "r3_integrity": "medium", "r4_viability": "medium", "r5_economics": "info"},
+  "risk_reasons": {
+    "r1_regulatory": [{"severity": "low", "text": "US legal opinion submitted"}, {"severity": "low", "text": "No sanctions matches"}],
+    "r2_fraud": [{"severity": "high", "text": "No smart contract audit"}, {"severity": "high", "text": "Single EOA upgrade control"}],
+    "r3_integrity": [{"severity": "medium", "text": "Team cliff only 3 months"}],
+    "r4_viability": [{"severity": "medium", "text": "Product in beta"}, {"severity": "low", "text": "GitHub active (85 commits/90d)"}],
+    "r5_economics": [{"severity": "info", "text": "Kairon Labs MM (unverified wallet)"}, {"severity": "info", "text": "52K Twitter / 45K Discord"}]
+  },
   "flags": [
     {"id": "f1", "dimension": "R2", "severity": "high", "title": "No smart contract audit submitted", "detail": "Token contract and marketplace contracts have no third-party security audit. Project claims 'internal review only.'", "recommendation": "Require audit from reputable firm before listing."},
     {"id": "f2", "dimension": "R2", "severity": "high", "title": "Single EOA controls token upgrade", "detail": "Token uses Transparent proxy with upgrade admin 0xadminNFT... (single EOA). No multisig or timelock.", "recommendation": "Require multisig or timelock on upgrade admin."},

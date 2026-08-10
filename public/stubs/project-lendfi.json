@@ -18,6 +18,13 @@
     "r4_viability": "low",
     "r5_economics": "good"
   },
+  "risk_reasons": {
+    "r1_regulatory": [{"severity": "medium", "text": "No US legal opinion"}, {"severity": "low", "text": "EU + Korea opinions submitted"}, {"severity": "low", "text": "Sanctions: clean"}],
+    "r2_fraud": [{"severity": "medium", "text": "3 team wallets misattributed as VC"}, {"severity": "low", "text": "Trail of Bits audited, remediated"}, {"severity": "low", "text": "Multisig: 5/3, all signers identified"}],
+    "r3_integrity": [{"severity": "low", "text": "Vesting contract deployed"}, {"severity": "low", "text": "Concentration: all clear"}, {"severity": "medium", "text": "45% treasury+ecosystem no lockup"}],
+    "r4_viability": [{"severity": "low", "text": "Product live, 150K MAU"}, {"severity": "low", "text": "GitHub: 240 commits/90d, 35 contributors"}],
+    "r5_economics": [{"severity": "good", "text": "Listed on Binance (LFI/USDT)"}, {"severity": "good", "text": "Wintermute confirmed as MM"}, {"severity": "info", "text": "85K Twitter / 32K Discord"}]
+  },
   "flags": [
     {
       "id": "f1",

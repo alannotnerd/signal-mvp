@@ -18,6 +18,13 @@
     "r4_viability": "low",
     "r5_economics": "good"
   },
+  "risk_reasons": {
+    "r1_regulatory": [{"severity": "medium", "text": "No legal opinion in any jurisdiction"}],
+    "r2_fraud": [{"severity": "critical", "text": "14-wallet Sybil cluster"}, {"severity": "high", "text": "Single EOA controls upgrade+mint"}, {"severity": "high", "text": "Audit findings not remediated"}],
+    "r3_integrity": [{"severity": "medium", "text": "No vesting contract deployed"}, {"severity": "medium", "text": "Unlimited mint capability"}],
+    "r4_viability": [{"severity": "low", "text": "GitHub active (120 commits/90d)"}, {"severity": "low", "text": "Product live, $800K treasury"}],
+    "r5_economics": [{"severity": "info", "text": "GSR confirmed as MM"}, {"severity": "info", "text": "28K Twitter / DEX only"}]
+  },
   "flags": [
     {
       "id": "f1",

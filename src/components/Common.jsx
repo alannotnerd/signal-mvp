@@ -14,7 +14,7 @@ export function FlagPill({ severity, text }) {
   </span>
 }
 
-export function RiskBar({ risk }) {
+export function RiskBar({ risk, reasons }) {
   const dims = [
     { key: 'r1_regulatory', label: 'R1 REGULATORY' },
     { key: 'r2_fraud', label: 'R2 FRAUD' },
@@ -23,11 +23,22 @@ export function RiskBar({ risk }) {
     { key: 'r5_economics', label: 'R5 ECONOMICS' }
   ]
   const COLORS = { critical: 'var(--red)', high: 'var(--orange)', medium: 'var(--yellow)', low: 'var(--green)', good: 'var(--green)', pending: 'var(--blue)', info: 'var(--text-dim)' }
+  const SEV_DOT = { critical: 'dot-red', high: 'dot-orange', medium: 'dot-yellow', low: 'dot-green' }
+
   return dims.map(d => {
     const v = risk?.[d.key] || 'info'
+    const dimReasons = reasons?.[d.key] || []
     return <div key={d.key} className={`risk-dim risk-dim-${v}`}>
       <div className="risk-dim-label">{d.label}</div>
       <div className="risk-dim-value" style={{ color: COLORS[v] }}>{LABELS[v]}</div>
+      {dimReasons.length > 0 && <div style={{ marginTop: 6, textAlign: 'left' }}>
+        {dimReasons.slice(0, 3).map((r, i) => (
+          <div key={i} style={{ fontSize: 10, color: 'var(--text-dim)', lineHeight: 1.5, display: 'flex', alignItems: 'flex-start', gap: 4 }}>
+            {r.severity && <span className={`dot ${SEV_DOT[r.severity] || 'dot-dim'}`} style={{ marginTop: 3 }} />}
+            <span>{r.text}</span>
+          </div>
+        ))}
+      </div>}
     </div>
   })
 }
