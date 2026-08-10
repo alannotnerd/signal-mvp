@@ -1,0 +1,111 @@
+{
+  "id": "defimax",
+  "name": "DeFiMax",
+  "symbol": "DFM",
+  "category": "DeFi / Yield Aggregator",
+  "description": "Cross-chain yield optimizer with auto-compounding strategies across 12 protocols.",
+  "submitted_at": "2026-08-07T09:30:00Z",
+  "submitted_by": "exchange-ops",
+  "version": 2,
+  "status": "in_review",
+  "website": "https://defimax.fi",
+  "whitepaper_url": "https://defimax.fi/whitepaper.pdf",
+  "risk": {
+    "overall": "high",
+    "r1_regulatory": "medium",
+    "r2_fraud": "high",
+    "r3_integrity": "medium",
+    "r4_viability": "low",
+    "r5_economics": "good"
+  },
+  "flags": [
+    {
+      "id": "f1",
+      "dimension": "R2",
+      "severity": "critical",
+      "title": "14-wallet Sybil cluster detected",
+      "detail": "14 wallets created within 3 hours on Jul 28, 2026. All funded from the same CEX withdrawal with identical amounts. Declared as 8 Team + 6 Ecosystem. Pattern matches coordinated fabrication.",
+      "cluster": {"size": 14, "created": "2026-07-28", "funding_source": "0xfunder... (Binance withdrawal)", "pattern": "All 14 wallets created within 3 hours, identical 0.1 ETH each, zero subsequent activity.", "declared_as": ["Team (8)", "Ecosystem (6)"]},
+      "recommendation": "REJECT or require complete re-disclosure with proof of wallet ownership."
+    },
+    {
+      "id": "f2",
+      "dimension": "R2",
+      "severity": "high",
+      "title": "Single EOA controls contract upgrade",
+      "detail": "Token contract uses UUPS proxy with upgrade admin 0xadmin... (single EOA with no multisig). Same EOA also controls mint function.",
+      "recommendation": "Require multisig upgrade control before listing."
+    },
+    {
+      "id": "f3",
+      "dimension": "R1",
+      "severity": "medium",
+      "title": "No legal opinion covering any jurisdiction",
+      "detail": "Project has not submitted any legal opinion on token securities classification.",
+      "recommendation": "Require legal opinion before listing committee."
+    },
+    {
+      "id": "f4",
+      "dimension": "R3",
+      "severity": "medium",
+      "title": "No vesting contract deployed",
+      "detail": "Vesting contract not deployed on-chain. Cannot verify vesting enforcement pre-TGE.",
+      "recommendation": "Require vesting contract deployment before listing."
+    }
+  ],
+  "r1_regulatory": {
+    "risk": "medium",
+    "sanctions": {"status": "clean", "detail": "Screened 36 wallets + 5 team + 8 investors. 0 matches."},
+    "legal_opinions": {"status": "none", "opinions": [], "missing": ["All jurisdictions"]},
+    "token_characteristics": {"privacy_enhancing": false, "derivative": false, "debt_characteristics": false, "profit_share": false, "verified_onchain": true},
+    "entity": {"name": "DeFiMax Labs Ltd", "jurisdiction": "British Virgin Islands", "registration": "BVI-987654", "verified": "self_reported"}
+  },
+  "r2_fraud": {
+    "risk": "high",
+    "allocation_summary": {"total_wallets": 36, "flagged": 16, "sybil_clusters": 1, "misattributed": 2, "verified": 4, "unknown": 14},
+    "sybil_clusters": [{"id": "c1", "size": 14, "created": "2026-07-28", "funding_source": "0xfunder... (Binance withdrawal)", "pattern": "14 wallets, 3hr window, identical 0.1 ETH each", "declared_as": ["Team (8)", "Ecosystem (6)"], "severity": "critical"}],
+    "contract_analysis": {"deployed": true, "chain": "Arbitrum", "standard": "ERC-20", "proxy": {"type": "UUPS", "upgrade_control": "0xadmin... (single EOA)", "risk": "high"}, "mint": {"cap": "unlimited", "access": "onlyOwner (single EOA)", "risk": "critical"}, "audit": {"exists": true, "auditor": "Certik", "date": "2026-04", "findings": "0 critical, 1 high, 4 medium", "remediated": false, "risk": "high"}},
+    "team": {"headcount": 18, "members_kyc_verified": 5, "members_total": 8},
+    "wallet_map": {
+      "team": {"total": 14, "verified": 2, "misattributed": 2, "sybil": 8, "unknown": 2, "wallets": [
+        {"address": "0xCEOdfm...", "label": "CEO", "entity": "Team", "freshness": "Veteran", "risk": "green"},
+        {"address": "0xCTOdfm...", "label": "CTO", "entity": "Team", "freshness": "Veteran", "risk": "green"},
+        {"address": "0xSybA...", "label": "Marketing Lead", "entity": "Unknown", "freshness": "Sybil #1", "risk": "red"},
+        {"address": "0xSybB...", "label": "Community Manager", "entity": "Unknown", "freshness": "Sybil #1", "risk": "red"},
+        {"address": "0xSybC...", "label": "Dev 2", "entity": "Unknown", "freshness": "Sybil #1", "risk": "red"},
+        {"address": "0xDevA...", "label": "Lead Dev", "entity": "VC (!)", "freshness": "Established", "risk": "red"},
+        {"address": "0xDevB...", "label": "Engineer", "entity": "VC (!)", "freshness": "Recent", "risk": "red"},
+        {"address": "0xNewA...", "label": "Designer", "entity": "Unknown", "freshness": "Fresh", "risk": "orange"}
+      ]},
+      "investors": {"total": 10, "verified": 4, "unknown": 6, "wallets": [
+        {"address": "0xVCA...", "label": "Pantera", "entity": "VC", "freshness": "Veteran", "risk": "green"},
+        {"address": "0xVCB...", "label": "Hashed", "entity": "VC", "freshness": "Veteran", "risk": "green"}
+      ]},
+      "ecosystem": {"total": 12, "verified": 0, "sybil": 6, "unknown": 6, "wallets": [
+        {"address": "0xSybD...", "label": "Ecosystem 1", "entity": "Unknown", "freshness": "Sybil #1", "risk": "red"},
+        {"address": "0xSybE...", "label": "Ecosystem 2", "entity": "Unknown", "freshness": "Sybil #1", "risk": "red"}
+      ]}
+    }
+  },
+  "r3_integrity": {
+    "risk": "medium", "note": "Pre-TGE — based on self-reported data and contract analysis.",
+    "vesting": {"categories": [{"name": "Team", "cliff_months": 6, "vesting_months": 24, "schedule": "linear", "first_unlock": "2027-02"}, {"name": "Investors", "cliff_months": 3, "vesting_months": 18, "schedule": "linear", "first_unlock": "2026-11"}, {"name": "Treasury", "cliff_months": null, "vesting_months": null, "schedule": "governance", "first_unlock": null}, {"name": "Liquidity", "cliff_months": null, "vesting_months": null, "schedule": "immediate", "first_unlock": "TGE"}], "contract_deployed": false},
+    "concentration": {"gini": 0.70, "gini_benchmark": 0.75, "top3_pct": 35, "top3_benchmark": 45, "largest_single_pct": 16, "largest_single_benchmark": 25, "status": "all_clear"},
+    "supply_controls": {"burn": {"type": "none", "verified": true}, "inflation": {"rate": "3.0%", "mechanism": "yield_rewards", "governance_controlled": false, "verified": true}, "mint": {"capped": false, "cap": "unlimited", "access": "onlyOwner (single EOA)", "risk": "critical", "verified": true}},
+    "unlock_calendar": [{"date": "2026-11", "tokens": "30,000,000", "pct": "6.0%", "category": "Investors"}]
+  },
+  "r4_viability": {
+    "risk": "low",
+    "product": {"url": "https://app.defimax.fi", "status": "live", "url_reachable": true},
+    "github": {"url": "https://github.com/defimax/protocol", "stars": 450, "contributors": 8, "commits_90d": 120, "last_commit": "2026-08-06", "license": "MIT", "status": "active"},
+    "team": {"headcount": 18, "engineering": 10, "verified": false},
+    "financials": {"total_raised": "$6,000,000", "burn_rate": "$150,000/mo", "runway_months": 14, "verified": false, "treasury_onchain": "$800,000 in stables"}
+  },
+  "r5_economics": {
+    "risk": "good",
+    "market_presence": {"cex_listings": [], "dex_listings": [{"dex": "Uniswap V3", "chain": "Arbitrum", "pair": "DFM/ETH", "pool": "0xPoolDFM...", "tvl": "$1,200,000"}], "cmc_rank": 1200, "market_cap": "$8,000,000"},
+    "market_makers": [{"name": "GSR", "wallet_verified": true}],
+    "community": {"twitter": {"handle": "@defimax_fi", "followers": 28000}, "discord": {"members": 15000}, "telegram": {"members": 22000}},
+    "listing_preferences": {"program": "Direct Listing", "target_fdv": "$80,000,000", "target_date": "Q4 2026"}
+  }
+}

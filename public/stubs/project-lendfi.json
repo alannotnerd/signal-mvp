@@ -1,0 +1,263 @@
+{
+  "id": "lendfi",
+  "name": "LendFi",
+  "symbol": "LFI",
+  "category": "DeFi / Lending",
+  "description": "Decentralized lending protocol with dynamic interest rates and cross-chain collateral.",
+  "submitted_at": "2026-08-09T14:00:00Z",
+  "submitted_by": "project-team",
+  "version": 3,
+  "status": "in_review",
+  "website": "https://lendfi.io",
+  "whitepaper_url": "https://lendfi.io/whitepaper.pdf",
+  "risk": {
+    "overall": "medium",
+    "r1_regulatory": "medium",
+    "r2_fraud": "medium",
+    "r3_integrity": "low",
+    "r4_viability": "low",
+    "r5_economics": "good"
+  },
+  "flags": [
+    {
+      "id": "f1",
+      "dimension": "R2",
+      "severity": "medium",
+      "title": "3 team wallets misattributed (entity graph contradiction)",
+      "detail": "Wallet 0xAdv... declared as 'Team Advisor'. Entity graph shows this wallet was classified as VC in ProjectA (2025) and ProjectB (2026).",
+      "wallets": [
+        {"address": "0xAdv...", "declared": "Team Advisor", "entity_graph": "VC — ProjectA (2025), ProjectB (2026)"}
+      ],
+      "recommendation": "Request project clarify the relationship. If advisor is VC-affiliated, move wallet to 'Investors' category."
+    },
+    {
+      "id": "f2",
+      "dimension": "R1",
+      "severity": "medium",
+      "title": "No legal opinion for US jurisdiction",
+      "detail": "Project has submitted EU (MiCA) and Korea legal opinions but is missing US (Howey test) coverage.",
+      "recommendation": "Require US legal opinion before listing committee review."
+    },
+    {
+      "id": "f3",
+      "dimension": "R3",
+      "severity": "medium",
+      "title": "Ecosystem + Treasury: 45% of supply with no lockup",
+      "detail": "Treasury (30%) and Ecosystem (15%) allocations have no cliff or vesting period. Combined 45% of total supply is flexible.",
+      "recommendation": "Flag for listing committee — consider requiring lockup terms for treasury allocation."
+    }
+  ],
+  "r1_regulatory": {
+    "risk": "medium",
+    "sanctions": {
+      "status": "clean",
+      "detail": "Screened 32 wallets + 6 team members + 8 investor entities against OFAC, EU, UN sanctions lists via Chainalysis (2026-08-10). Result: 0 matches found."
+    },
+    "legal_opinions": {
+      "status": "partial",
+      "opinions": [
+        {"firm": "DLA Piper", "jurisdiction": "EU", "topic": "MiCA compliance", "date": "2026-03", "verified": true},
+        {"firm": "Kim & Chang", "jurisdiction": "South Korea", "topic": "Not a security under Korean law", "date": "2026-04", "verified": true}
+      ],
+      "missing": ["United States (Howey test)"]
+    },
+    "token_characteristics": {
+      "privacy_enhancing": false,
+      "derivative": false,
+      "debt_characteristics": false,
+      "profit_share": false,
+      "verified_onchain": true
+    },
+    "entity": {
+      "name": "LendFi Foundation",
+      "jurisdiction": "Switzerland",
+      "registration": "CHE-456.789.012",
+      "verified": "partially_verified"
+    }
+  },
+  "r2_fraud": {
+    "risk": "medium",
+    "allocation_summary": {
+      "total_wallets": 32,
+      "flagged": 3,
+      "sybil_clusters": 0,
+      "misattributed": 3,
+      "verified": 12,
+      "unknown": 17
+    },
+    "contract_analysis": {
+      "deployed": true,
+      "chain": "Ethereum",
+      "standard": "ERC-20",
+      "proxy": {"type": "UUPS", "upgrade_control": "5/3 multisig", "risk": "low"},
+      "mint": {"cap": "MAX_SUPPLY (1B)", "access": "multisig", "risk": "low"},
+      "audit": {"exists": true, "auditor": "Trail of Bits", "date": "2026-02", "findings": "1 medium, 3 low, 0 critical", "remediated": true, "risk": "low"},
+      "bytecode_verified": true
+    },
+    "multisig": {
+      "safe_address": "0xsafeLFI...",
+      "signers": 5,
+      "threshold": 3,
+      "signers_identified": 5
+    },
+    "team": {
+      "headcount": 32,
+      "members_kyc_verified": 8,
+      "members_total": 8,
+      "linkedin_verified": 8,
+      "github_active": 7
+    },
+    "wallet_map": {
+      "team": {
+        "total": 8,
+        "verified": 5,
+        "misattributed": 3,
+        "fresh": 0,
+        "wallets": [
+          {"address": "0xCEO...", "label": "CEO Alice", "entity": "Team", "freshness": "Veteran", "risk": "green"},
+          {"address": "0xCTO...", "label": "CTO Bob", "entity": "Team", "freshness": "Veteran", "risk": "green"},
+          {"address": "0xCOO...", "label": "COO Carol", "entity": "Team", "freshness": "Established", "risk": "green"},
+          {"address": "0xEng1...", "label": "Lead Engineer Dave", "entity": "Team", "freshness": "Established", "risk": "green"},
+          {"address": "0xEng2...", "label": "Engineer Eve", "entity": "Team", "freshness": "Established", "risk": "green"},
+          {"address": "0xAdv1...", "label": "Advisor Frank", "entity": "VC (!)", "freshness": "Recent", "risk": "red"},
+          {"address": "0xAdv2...", "label": "Advisor Grace", "entity": "VC (!)", "freshness": "Recent", "risk": "red"},
+          {"address": "0xAdv3...", "label": "Advisor Henry", "entity": "VC (!)", "freshness": "Established", "risk": "red"}
+        ]
+      },
+      "investors": {
+        "total": 12,
+        "verified": 8,
+        "unknown": 4,
+        "wallets": [
+          {"address": "0xVCa...", "label": "a16z", "entity": "VC", "freshness": "Veteran", "risk": "green"},
+          {"address": "0xVCp...", "label": "Paradigm", "entity": "VC", "freshness": "Veteran", "risk": "green"},
+          {"address": "0xVCd...", "label": "Dragonfly", "entity": "VC", "freshness": "Veteran", "risk": "green"}
+        ]
+      },
+      "treasury": {
+        "total": 2,
+        "verified": 2,
+        "wallets": [
+          {"address": "0xTreasury...", "label": "Treasury", "entity": "Treasury", "freshness": "Established", "risk": "green"}
+        ]
+      }
+    }
+  },
+  "r3_integrity": {
+    "risk": "low",
+    "note": "Pre-TGE — based on self-reported data and contract analysis.",
+    "vesting": {
+      "categories": [
+        {"name": "Team", "cliff_months": 12, "vesting_months": 36, "schedule": "linear", "first_unlock": "2027-09"},
+        {"name": "Investors", "cliff_months": 6, "vesting_months": 24, "schedule": "linear", "first_unlock": "2026-09"},
+        {"name": "Treasury", "cliff_months": null, "vesting_months": null, "schedule": "governance", "first_unlock": null},
+        {"name": "Ecosystem", "cliff_months": null, "vesting_months": null, "schedule": "flexible", "first_unlock": null},
+        {"name": "Liquidity", "cliff_months": null, "vesting_months": null, "schedule": "immediate", "first_unlock": "TGE"}
+      ],
+      "contract_deployed": true,
+      "contract_address": "0xVestingLFI..."
+    },
+    "concentration": {
+      "gini": 0.65,
+      "gini_benchmark": 0.75,
+      "top3_pct": 32,
+      "top3_benchmark": 45,
+      "largest_single_pct": 15,
+      "largest_single_benchmark": 25,
+      "status": "all_clear"
+    },
+    "supply_controls": {
+      "burn": {"type": "transaction_fee", "rate": "0.05%", "verified": true},
+      "inflation": {"rate": "2.0%", "mechanism": "staking_rewards", "governance_controlled": true, "verified": true},
+      "mint": {"capped": true, "cap": "MAX_SUPPLY (1B)", "access": "multisig", "risk": "low", "verified": true}
+    },
+    "unlock_calendar": [
+      {"date": "2026-09", "tokens": "50,000,000", "pct": "5.0%", "category": "Investors"},
+      {"date": "2027-09", "tokens": "25,000,000", "pct": "2.5%", "category": "Team"},
+      {"date": "2028-03", "tokens": "25,000,000", "pct": "2.5%", "category": "Team"}
+    ]
+  },
+  "r4_viability": {
+    "risk": "low",
+    "product": {
+      "url": "https://app.lendfi.io",
+      "testnet_url": "https://testnet.lendfi.io",
+      "status": "live",
+      "url_reachable": true,
+      "testnet_reachable": true
+    },
+    "github": {
+      "url": "https://github.com/lendfi/protocol",
+      "stars": 1200,
+      "contributors": 35,
+      "commits_90d": 240,
+      "last_commit": "2026-08-09",
+      "license": "MIT",
+      "status": "active"
+    },
+    "team": {
+      "headcount": 32,
+      "engineering": 18,
+      "operations": 6,
+      "marketing": 5,
+      "business": 3,
+      "verified": false,
+      "note": "Self-reported. Headcount plausible for DeFi protocol."
+    },
+    "financials": {
+      "total_raised": "$15,000,000",
+      "burn_rate": "$280,000/mo",
+      "runway_months": 18,
+      "verified": false,
+      "treasury_onchain": "$2,100,000 in stables"
+    },
+    "roadmap": [
+      {"title": "Mainnet Launch", "target": "2025-08", "actual": "2025-08", "status": "completed"},
+      {"title": "Governance Module", "target": "2026-01", "actual": "2026-01", "status": "completed"},
+      {"title": "Cross-chain Bridge", "target": "2026-09", "actual": null, "status": "planned"},
+      {"title": "Institutional API", "target": "2026-12", "actual": null, "status": "planned"}
+    ],
+    "partnerships": [
+      {"name": "Chainlink", "type": "oracle", "announced": "2025-07", "url_verified": true},
+      {"name": "LayerZero", "type": "bridge", "announced": "2026-01", "url_verified": true},
+      {"name": "Circle", "type": "USDC integration", "announced": "2026-05", "url_verified": true}
+    ]
+  },
+  "r5_economics": {
+    "risk": "good",
+    "market_presence": {
+      "cex_listings": [
+        {"exchange": "Binance", "pair": "LFI/USDT", "date": "2026-04-15", "verified": true}
+      ],
+      "dex_listings": [
+        {"dex": "Uniswap V3", "chain": "Ethereum", "pair": "LFI/ETH", "pool": "0xPoolLFI...", "tvl": "$4,820,000"}
+      ],
+      "cmc_rank": 247,
+      "market_cap": "$50,000,000",
+      "fdv": "$200,000,000",
+      "daily_volume": "$1,850,000"
+    },
+    "market_makers": [
+      {"name": "Wintermute", "wallet_verified": true, "commitment": "24/7 market making on CEX venues"}
+    ],
+    "community": {
+      "twitter": {"handle": "@lendfi", "followers": 85000, "verified": true},
+      "discord": {"members": 32000, "verified": true},
+      "telegram": {"members": 48000, "verified": true}
+    },
+    "listing_preferences": {
+      "program": "Direct Listing",
+      "target_fdv": "$200,000,000",
+      "target_date": "Q3 2026",
+      "referral": "Internal BD team",
+      "vesting_extension_open": true,
+      "valuation_adjustment_open": false
+    },
+    "marketing": {
+      "budget": "$150,000",
+      "kol_count": 3,
+      "referral_program": true,
+      "staking_rewards": true
+    }
+  }
+}
