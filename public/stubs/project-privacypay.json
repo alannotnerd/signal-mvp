@@ -1,0 +1,13 @@
+{
+  "id": "privacypay", "name": "PrivacyPay", "symbol": "PRV", "category": "Privacy / Payments",
+  "description": "Privacy-preserving payment protocol using zero-knowledge proofs for compliant confidential transactions.",
+  "submitted_at": "2026-08-10T15:00:00Z", "submitted_by": "project-team", "version": 1, "status": "pending",
+  "website": "https://privacypay.io", "whitepaper_url": "https://privacypay.io/whitepaper.pdf",
+  "risk": {"overall": "pending", "r1_regulatory": "pending", "r2_fraud": "pending", "r3_integrity": "pending", "r4_viability": "pending", "r5_economics": "pending"},
+  "flags": [], "critical_flags": 0, "high_flags": 0, "medium_flags": 0,
+  "r1_regulatory": {"risk": "pending", "sanctions": null, "legal_opinions": {"opinions": [], "missing": ["Pending — not yet submitted"]}, "token_characteristics": null, "entity": null},
+  "r2_fraud": {"risk": "pending", "allocation_summary": null, "contract_analysis": null, "team": null, "wallet_map": null},
+  "r3_integrity": {"risk": "pending", "vesting": null, "concentration": null, "supply_controls": null, "unlock_calendar": []},
+  "r4_viability": {"risk": "pending", "product": null, "github": null, "team": null, "financials": null},
+  "r5_economics": {"risk": "pending", "market_presence": {"cex_listings": [], "dex_listings": []}, "market_makers": [], "community": null}
+}

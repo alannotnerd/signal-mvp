@@ -39,7 +39,7 @@ export default function ProjectDetail() {
 
     <div className="flags-section">
       <h3 style={{ fontSize: 14, marginBottom: 10, color: 'var(--text-bright)' }}>
-        ⚠ {p.flags?.length || 0} flags · {p.critical_flags || 0} critical · {p.high_flags || 0} high · {p.medium_flags || 0} medium
+        ⚠ {p.flags?.length || 0} flags · {p.flags?.filter(f => f.severity === 'critical').length || 0} critical · {p.flags?.filter(f => f.severity === 'high').length || 0} high · {p.flags?.filter(f => f.severity === 'medium').length || 0} medium
       </h3>
       {p.flags?.map(f => <FlagCard key={f.id} flag={f} />)}
     </div>
