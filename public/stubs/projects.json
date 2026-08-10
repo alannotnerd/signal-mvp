@@ -30,9 +30,9 @@
       "submitted_at": "2026-08-07",
       "version": 2,
       "risk": {
-        "overall": "high",
+        "overall": "critical",
         "r1_regulatory": "medium",
-        "r2_fraud": "high",
+        "r2_fraud": "critical",
         "r3_integrity": "medium",
         "r4_viability": "low",
         "r5_economics": "info"
@@ -118,10 +118,10 @@
       "submitted_at": "2026-08-10",
       "version": 1,
       "risk": {
-        "overall": "low",
-        "r1_regulatory": "low",
-        "r2_fraud": "low",
-        "r3_integrity": "low",
+        "overall": "clean",
+        "r1_regulatory": "clean",
+        "r2_fraud": "clean",
+        "r3_integrity": "clean",
         "r4_viability": "low",
         "r5_economics": "good"
       },
@@ -140,10 +140,10 @@
       "submitted_at": "2026-08-10",
       "version": 1,
       "risk": {
-        "overall": "low",
-        "r1_regulatory": "low",
-        "r2_fraud": "low",
-        "r3_integrity": "low",
+        "overall": "clean",
+        "r1_regulatory": "clean",
+        "r2_fraud": "clean",
+        "r3_integrity": "clean",
         "r4_viability": "low",
         "r5_economics": "good"
       },
