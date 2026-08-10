@@ -1,0 +1,180 @@
+{
+  "projects": [
+    {
+      "id": "chainx",
+      "name": "ChainX",
+      "symbol": "CHX",
+      "category": "L1",
+      "submitted_at": "2026-08-08",
+      "version": 1,
+      "risk": {
+        "overall": "critical",
+        "r1_regulatory": "critical",
+        "r2_fraud": "critical",
+        "r3_integrity": "high",
+        "r4_viability": "medium",
+        "r5_economics": "info"
+      },
+      "top_flag": "3 OFAC-sanctioned wallets detected",
+      "flag_count": 10,
+      "critical_flags": 5,
+      "high_flags": 3,
+      "medium_flags": 2,
+      "status": "in_review"
+    },
+    {
+      "id": "defimax",
+      "name": "DeFiMax",
+      "symbol": "DFM",
+      "category": "DeFi",
+      "submitted_at": "2026-08-07",
+      "version": 2,
+      "risk": {
+        "overall": "high",
+        "r1_regulatory": "medium",
+        "r2_fraud": "high",
+        "r3_integrity": "medium",
+        "r4_viability": "low",
+        "r5_economics": "info"
+      },
+      "top_flag": "14-wallet Sybil cluster detected",
+      "flag_count": 7,
+      "critical_flags": 2,
+      "high_flags": 3,
+      "medium_flags": 2,
+      "status": "in_review"
+    },
+    {
+      "id": "nftverse",
+      "name": "NFTverse",
+      "symbol": "NFTV",
+      "category": "Gaming",
+      "submitted_at": "2026-08-05",
+      "version": 1,
+      "risk": {
+        "overall": "high",
+        "r1_regulatory": "low",
+        "r2_fraud": "high",
+        "r3_integrity": "medium",
+        "r4_viability": "medium",
+        "r5_economics": "info"
+      },
+      "top_flag": "No smart contract audit submitted",
+      "flag_count": 4,
+      "critical_flags": 1,
+      "high_flags": 2,
+      "medium_flags": 1,
+      "status": "in_review"
+    },
+    {
+      "id": "lendfi",
+      "name": "LendFi",
+      "symbol": "LFI",
+      "category": "DeFi",
+      "submitted_at": "2026-08-09",
+      "version": 3,
+      "risk": {
+        "overall": "medium",
+        "r1_regulatory": "medium",
+        "r2_fraud": "medium",
+        "r3_integrity": "low",
+        "r4_viability": "low",
+        "r5_economics": "good"
+      },
+      "top_flag": "3 wallets misattributed (entity graph contradiction)",
+      "flag_count": 3,
+      "critical_flags": 0,
+      "high_flags": 0,
+      "medium_flags": 3,
+      "status": "in_review"
+    },
+    {
+      "id": "stablevault",
+      "name": "StableVault",
+      "symbol": "SVLT",
+      "category": "Stablecoin",
+      "submitted_at": "2026-08-06",
+      "version": 1,
+      "risk": {
+        "overall": "medium",
+        "r1_regulatory": "medium",
+        "r2_fraud": "low",
+        "r3_integrity": "low",
+        "r4_viability": "medium",
+        "r5_economics": "good"
+      },
+      "top_flag": "No legal opinion for US jurisdiction",
+      "flag_count": 2,
+      "critical_flags": 0,
+      "high_flags": 0,
+      "medium_flags": 2,
+      "status": "in_review"
+    },
+    {
+      "id": "gameverse",
+      "name": "GameVerse",
+      "symbol": "GVR",
+      "category": "Gaming",
+      "submitted_at": "2026-08-10",
+      "version": 1,
+      "risk": {
+        "overall": "low",
+        "r1_regulatory": "low",
+        "r2_fraud": "low",
+        "r3_integrity": "low",
+        "r4_viability": "low",
+        "r5_economics": "good"
+      },
+      "top_flag": null,
+      "flag_count": 0,
+      "critical_flags": 0,
+      "high_flags": 0,
+      "medium_flags": 0,
+      "status": "approved"
+    },
+    {
+      "id": "metaflow",
+      "name": "MetaFlow",
+      "symbol": "MFL",
+      "category": "Infrastructure",
+      "submitted_at": "2026-08-10",
+      "version": 1,
+      "risk": {
+        "overall": "low",
+        "r1_regulatory": "low",
+        "r2_fraud": "low",
+        "r3_integrity": "low",
+        "r4_viability": "low",
+        "r5_economics": "good"
+      },
+      "top_flag": null,
+      "flag_count": 0,
+      "critical_flags": 0,
+      "high_flags": 0,
+      "medium_flags": 0,
+      "status": "approved"
+    },
+    {
+      "id": "privacypay",
+      "name": "PrivacyPay",
+      "symbol": "PRV",
+      "category": "Privacy",
+      "submitted_at": "2026-08-10",
+      "version": 1,
+      "risk": {
+        "overall": "pending",
+        "r1_regulatory": "pending",
+        "r2_fraud": "pending",
+        "r3_integrity": "pending",
+        "r4_viability": "pending",
+        "r5_economics": "pending"
+      },
+      "top_flag": null,
+      "flag_count": 0,
+      "critical_flags": 0,
+      "high_flags": 0,
+      "medium_flags": 0,
+      "status": "pending"
+    }
+  ]
+}
