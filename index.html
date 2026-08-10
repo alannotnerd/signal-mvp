@@ -1,78 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Signal — Pre-TGE Due Diligence</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/style.css">
-</head>
-<body>
-<div class="app">
-  <div class="header">
-    <div class="header-left">
-      <h1>Signal</h1>
-      <span class="badge">Pre-TGE DD</span>
-    </div>
-    <div class="header-right">
-      <span class="count" id="project-count">Loading...</span>
-      <button class="btn btn-sm">+ Add Project</button>
-    </div>
-  </div>
-
-  <div class="stats-bar" id="stats-bar"></div>
-
-  <div class="table-wrap">
-    <table>
-      <thead>
-        <tr>
-          <th>Project</th>
-          <th>Category</th>
-          <th>Submitted</th>
-          <th>Risk</th>
-          <th>Top Flag</th>
-          <th></th>
-        </tr>
-      </thead>
-      <tbody id="project-list"></tbody>
-    </table>
-  </div>
-</div>
-
-<script src="js/stubs.js"></script>
-<script src="js/components.js"></script>
-<script>
-(async function() {
-  const projects = await Stubs.getProjects();
-  if (!projects.length) { document.getElementById('project-list').innerHTML = '<tr><td colspan="6" style="text-align:center;color:var(--text-dim);padding:40px">No projects found.</td></tr>'; return; }
-
-  const counts = { critical: 0, high: 0, medium: 0, low: 0, pending: 0, total: projects.length };
-  projects.forEach(p => { const r = p.risk.overall; if (counts[r] !== undefined) counts[r]++; });
-
-  document.getElementById('project-count').textContent = `${counts.total} projects in queue`;
-  document.getElementById('stats-bar').innerHTML = `
-    <div class="stat"><div class="stat-icon risk-critical">🔴</div><div><div class="stat-label">Critical</div><div class="stat-value">${counts.critical}</div></div></div>
-    <div class="stat"><div class="stat-icon risk-high">🟠</div><div><div class="stat-label">High</div><div class="stat-value">${counts.high}</div></div></div>
-    <div class="stat"><div class="stat-icon risk-medium">🟡</div><div><div class="stat-label">Medium</div><div class="stat-value">${counts.medium}</div></div></div>
-    <div class="stat"><div class="stat-icon risk-low">🟢</div><div><div class="stat-label">Clean</div><div class="stat-value">${counts.low}</div></div></div>
-    <div class="stat"><div class="stat-icon risk-pending">🔵</div><div><div class="stat-label">Pending</div><div class="stat-value">${counts.pending}</div></div></div>
-  `;
-
-  const priority = { critical: 0, high: 1, medium: 2, low: 3, pending: 4 };
-  projects.sort((a, b) => (priority[a.risk.overall] || 99) - (priority[b.risk.overall] || 99));
-
-  document.getElementById('project-list').innerHTML = projects.map(p => `
-    <tr class="clickable" onclick="location.href='project.html?id=${p.id}'">
-      <td><strong style="color:var(--text-bright)">${p.name}</strong> <span style="color:var(--text-dim)">${p.symbol}</span></td>
-      <td>${p.category}</td>
-      <td style="color:var(--text-dim)">${p.submitted_at}</td>
-      <td>${Components.riskBadge(p.risk.overall)}</td>
-      <td>${p.top_flag ? Components.flagPill(p.risk.overall === 'critical' ? 'critical' : p.risk.overall === 'high' ? 'high' : 'medium', p.top_flag) : '<span style="color:var(--text-dim)">—</span>'}</td>
-      <td><a href="project.html?id=${p.id}" class="btn btn-sm">View →</a></td>
-    </tr>
-  `).join('');
-})();
-</script>
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Signal — Pre-TGE Due Diligence</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
 </html>
