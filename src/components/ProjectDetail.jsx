@@ -3,7 +3,7 @@ import { useParams, Link } from 'react-router-dom'
 import { fetchProject } from '../stubs/api'
 import { computeRiskScores, computeRiskReasons } from '../engine/scoring'
 import RiskBadge, { RiskBar, FlagCard, Section, ScoreTrace } from './Common'
-import { GitHubSparkline, MilestoneTimeline, SocialActivityTable, DAUSparkline } from './Charts'
+import { GitHubSparkline, MilestoneTimeline, SocialBarChart, DAUSparkline, TeamMemberCard, TokenPieChart } from './Charts'
 
 export default function ProjectDetail() {
   const { id } = useParams()
@@ -50,6 +50,8 @@ export default function ProjectDetail() {
       </h3>
       {p.flags?.map(f => <FlagCard key={f.id} flag={f} />)}
     </div>
+
+    {p.team_members?.length > 0 && <TeamDDSection members={p.team_members} />}
 
     {p.r1_regulatory && <R1Section r1={p.r1_regulatory} riskLevel={risk.r1_regulatory} />}
     {p.r2_fraud && <R2Section r2={p.r2_fraud} riskLevel={risk.r2_fraud} />}
@@ -206,7 +208,26 @@ function R5Section({ r5, riskLevel }) {
       <div className="info-item"><div className="info-label">Community</div><div className="info-value">Twitter {r5.community?.twitter?.followers?.toLocaleString()} · Discord {r5.community?.discord?.members?.toLocaleString()} · TG {r5.community?.telegram?.members?.toLocaleString()}</div></div>
       <div className="info-item"><div className="info-label">Listing Prefs</div><div className="info-value">{r5.listing_preferences?.program} · FDV {r5.listing_preferences?.target_fdv} · {r5.listing_preferences?.target_date}</div></div>
     </div>
-    {r5.social_activity && <SocialActivityTable data={r5.social_activity} />}
+    {r5.social_activity && <SocialBarChart data={r5.social_activity} />}
     {r5.social_activity && <DAUSparkline data={r5.social_activity} />}
+    {r5.token_allocation && <TokenPieChart allocation={r5.token_allocation} />}
   </Section>
 }
+
+// ── Team DD Section ─────────────────────────────────────────────────────
+
+function TeamDDSection({ members }) {
+  return <div className="section">
+    <div className="section-header" style={{ cursor: 'default' }}>
+      <div className="section-header-left">
+        <h3>👥 TEAM DUE DILIGENCE</h3>
+        <span className="tag" style={{ color: DIM }}>{members.length} members</span>
+      </div>
+    </div>
+    <div className="section-body">
+      {members.map((m, i) => <TeamMemberCard key={i} member={m} />)}
+    </div>
+  </div>
+}
+
+const DIM = '#6b7280'

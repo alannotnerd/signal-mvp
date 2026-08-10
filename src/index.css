@@ -179,10 +179,6 @@ tr.clickable{cursor:pointer}tr.clickable:hover td{background:var(--bg-hover)}
 
 /* Social Activity Table */
 .social-activity-wrap{margin-top:20px;padding:16px;background:var(--bg);border:1px solid var(--border);border-radius:var(--radius)}
-.social-table{width:100%;font-size:12px}
-.social-table th{font-size:10px;padding:8px 10px;white-space:nowrap}
-.social-table td{padding:10px;vertical-align:middle}
-.social-table .tag{margin:0}
 
 /* DAU Indicator */
 .dau-indicator{margin-top:12px;padding:14px 16px;background:var(--bg);border:1px solid var(--border);border-radius:var(--radius);display:flex;flex-wrap:wrap;align-items:center;gap:20px}
@@ -192,3 +188,47 @@ tr.clickable{cursor:pointer}tr.clickable:hover td{background:var(--bg-hover)}
 .dau-bar-wrap{flex:1;min-width:120px;height:6px;background:var(--bg-card);border-radius:3px;overflow:hidden}
 .dau-bar-fill{height:100%;border-radius:3px;transition:width .3s}
 .dau-note{width:100%;font-size:11px;color:var(--text-dim);margin-top:4px}
+
+/* ===== Token Pie Chart ===== */
+.pie-wrap{margin-top:20px;padding:16px;background:var(--bg);border:1px solid var(--border);border-radius:var(--radius)}
+.pie-chart-row{display:flex;align-items:flex-start;gap:24px;margin-top:8px}
+.pie-legend{flex:1;display:flex;flex-direction:column;gap:6px;min-width:200px}
+.pie-legend-item{display:flex;align-items:center;gap:8px;font-size:12px}
+.pie-legend-dot{width:10px;height:10px;border-radius:3px;flex-shrink:0}
+.pie-legend-label{font-weight:600;color:var(--text-bright);min-width:85px}
+.pie-legend-pct{font-size:13px;font-weight:700;color:var(--text-bright);font-family:var(--mono);min-width:35px}
+.pie-legend-vest{font-size:10px;color:var(--text-dim)}
+
+/* ===== Team DD Cards ===== */
+.team-card{margin-bottom:8px;border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;background:var(--bg)}
+.team-card-flagged{border-color:rgba(248,81,73,.25)}
+.team-card-header{display:flex;align-items:center;gap:12px;padding:12px 14px;cursor:pointer;transition:background .15s}
+.team-card-header:hover{background:var(--bg-hover)}
+.team-card-avatar{width:36px;height:36px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:14px;color:#fff;flex-shrink:0}
+.team-card-info{flex:1;min-width:0}
+.team-card-name{font-size:14px;font-weight:600;color:var(--text-bright);display:flex;align-items:center}
+.team-card-role{font-size:12px;color:var(--text-dim)}
+.team-card-meta{display:flex;align-items:center;flex-shrink:0}
+.team-verify-badge{font-size:10px;padding:2px 8px;border-radius:4px;border:1px solid;font-family:var(--mono);white-space:nowrap}
+
+.team-card-body{padding:0 14px 14px 62px;border-top:1px solid var(--border)}
+.team-section-label{font-size:10px;font-weight:600;text-transform:uppercase;color:var(--text-dim);letter-spacing:.5px;margin-top:12px;margin-bottom:6px}
+
+.team-links{display:flex;flex-wrap:wrap;gap:6px}
+.team-link{font-size:11px;padding:2px 8px;border-radius:4px;border:1px solid var(--border);text-decoration:none;display:inline-flex;align-items:center;gap:4px}
+.team-link-verified{border-color:rgba(63,185,80,.3);color:var(--green)}
+.team-link-claimed{border-color:rgba(210,153,34,.3);color:var(--orange)}
+.team-link-note{font-size:10px;color:var(--orange);margin-top:4px}
+
+.team-edu-item{display:flex;align-items:center;gap:6px;padding:3px 0;font-size:12px}
+.team-edu-school{font-weight:600;color:var(--text-bright)}
+.team-edu-degree{color:var(--text)}
+.team-edu-year{color:var(--text-dim);font-size:11px}
+
+.team-exp-item{padding:4px 0;font-size:12px}
+.team-exp-role{font-weight:600;color:var(--text-bright)}
+.team-exp-company{color:var(--blue)}
+.team-exp-years{color:var(--text-dim);font-size:11px;margin-left:6px}
+.team-exp-note{font-size:10px;color:var(--orange);margin-top:2px;margin-left:14px}
+
+.team-flag{margin-top:10px;padding:8px 12px;background:var(--red-bg);border:1px solid rgba(248,81,73,.2);border-radius:4px;font-size:11px;color:var(--red)}

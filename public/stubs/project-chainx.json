@@ -842,6 +842,247 @@
         "member_growth_30d": 4200,
         "note": "Telegram member count self-reported — 30d growth (4200) inconsistent with Twitter growth (3200)"
       }
+    },
+    "token_allocation": {
+      "total_supply": "1,000,000,000 CHX",
+      "categories": [
+        {
+          "name": "Team",
+          "pct": 12,
+          "tokens": "120,000,000",
+          "cliff_months": 12,
+          "vesting_months": 36,
+          "color": "#f85149"
+        },
+        {
+          "name": "Investors",
+          "pct": 18,
+          "tokens": "180,000,000",
+          "cliff_months": 6,
+          "vesting_months": 24,
+          "color": "#d29922"
+        },
+        {
+          "name": "Ecosystem",
+          "pct": 25,
+          "tokens": "250,000,000",
+          "cliff_months": null,
+          "vesting_months": null,
+          "color": "#58a6ff"
+        },
+        {
+          "name": "Treasury",
+          "pct": 20,
+          "tokens": "200,000,000",
+          "cliff_months": null,
+          "vesting_months": null,
+          "color": "#3fb950"
+        },
+        {
+          "name": "Liquidity",
+          "pct": 10,
+          "tokens": "100,000,000",
+          "cliff_months": null,
+          "vesting_months": null,
+          "color": "#d4a72c"
+        },
+        {
+          "name": "Public Sale",
+          "pct": 15,
+          "tokens": "150,000,000",
+          "cliff_months": 0,
+          "vesting_months": 0,
+          "color": "#6b7280"
+        }
+      ],
+      "note": "45% of supply (Ecosystem + Treasury) has no lockup — governance-controlled only"
     }
-  }
+  },
+  "team_members": [
+    {
+      "name": "Alex Chen",
+      "role": "CEO / Co-Founder",
+      "wallet": "0xCEO...",
+      "education": [
+        {
+          "school": "Stanford University",
+          "degree": "BS Computer Science",
+          "year": "2015",
+          "verified": true
+        },
+        {
+          "school": "MIT",
+          "degree": "MBA",
+          "year": "2020",
+          "verified": true
+        }
+      ],
+      "social": {
+        "linkedin": {
+          "url": "linkedin.com/in/alexchen",
+          "verified": true
+        },
+        "twitter": {
+          "handle": "@alexchen_chainx",
+          "verified": true
+        },
+        "github": {
+          "handle": "alexchen",
+          "verified": true,
+          "commits_90d": 34
+        }
+      },
+      "experience": [
+        {
+          "company": "Google",
+          "role": "Senior Engineer",
+          "years": "2015-2019",
+          "verified": true
+        },
+        {
+          "company": "Polkadot",
+          "role": "Core Developer",
+          "years": "2019-2021",
+          "verified": true
+        },
+        {
+          "company": "ChainX",
+          "role": "CEO",
+          "years": "2021-Present",
+          "verified": null
+        }
+      ],
+      "kyc_verified": true
+    },
+    {
+      "name": "Sarah Kim",
+      "role": "CTO / Co-Founder",
+      "wallet": "0xCTO...",
+      "education": [
+        {
+          "school": "Seoul National University",
+          "degree": "PhD Cryptography",
+          "year": "2018",
+          "verified": true
+        },
+        {
+          "school": "KAIST",
+          "degree": "MS Computer Science",
+          "year": "2013",
+          "verified": true
+        }
+      ],
+      "social": {
+        "linkedin": {
+          "url": "linkedin.com/in/sarahkim",
+          "verified": true
+        },
+        "twitter": {
+          "handle": "@sarahkim_chainx",
+          "verified": false
+        },
+        "github": {
+          "handle": "sarahkim-crypto",
+          "verified": true,
+          "commits_90d": 18
+        }
+      },
+      "experience": [
+        {
+          "company": "Ethereum Foundation",
+          "role": "Research Fellow",
+          "years": "2018-2020",
+          "verified": true
+        },
+        {
+          "company": "Aave",
+          "role": "Smart Contract Lead",
+          "years": "2020-2022",
+          "verified": true
+        },
+        {
+          "company": "ChainX",
+          "role": "CTO",
+          "years": "2022-Present",
+          "verified": null
+        }
+      ],
+      "kyc_verified": true
+    },
+    {
+      "name": "Mike Park",
+      "role": "Lead Developer",
+      "wallet": "0xLead...",
+      "education": [
+        {
+          "school": "National Taiwan University",
+          "degree": "BS Computer Science",
+          "year": "2019",
+          "verified": false,
+          "note": "Self-reported — university not yet confirmed"
+        }
+      ],
+      "social": {
+        "linkedin": {
+          "url": null,
+          "verified": false
+        },
+        "twitter": {
+          "handle": "@mikedev99",
+          "verified": false
+        },
+        "github": {
+          "handle": "mikedev99",
+          "verified": false,
+          "commits_90d": 8,
+          "note": "Account created 2026-06 — only 8 commits, all in ChainX repo"
+        }
+      },
+      "experience": [
+        {
+          "company": "Freelance",
+          "role": "Blockchain Developer",
+          "years": "2020-2024",
+          "verified": false,
+          "note": "No verifiable employment records"
+        }
+      ],
+      "kyc_verified": false
+    },
+    {
+      "name": "Wei Zhang",
+      "role": "Advisor",
+      "wallet": "0xAdv...",
+      "education": [
+        {
+          "school": "Tsinghua University",
+          "degree": "PhD Economics",
+          "year": "2016",
+          "verified": false,
+          "note": "Declared as advisor wallet — on-chain analysis suggests VC affiliation"
+        }
+      ],
+      "social": {
+        "linkedin": {
+          "url": "linkedin.com/in/weizhang",
+          "verified": false
+        },
+        "twitter": {
+          "handle": "@weizhang_vc",
+          "verified": false
+        }
+      },
+      "experience": [
+        {
+          "company": "Sequoia Capital",
+          "role": "Venture Partner",
+          "years": "2016-2023",
+          "verified": false,
+          "note": "On-chain wallet activity matches VC patterns, not advisory role"
+        }
+      ],
+      "kyc_verified": false,
+      "flag": "Wallet misattributed — declared as Advisor, on-chain suggests VC investor"
+    }
+  ]
 }
