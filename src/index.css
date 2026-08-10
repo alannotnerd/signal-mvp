@@ -157,3 +157,38 @@ tr.clickable{cursor:pointer}tr.clickable:hover td{background:var(--bg-hover)}
 
 /* Responsive */
 @media(max-width:768px){.app{padding:12px}.risk-bar{flex-direction:column}.stats-bar{flex-direction:column}.info-grid{grid-template-columns:1fr}.project-header{flex-direction:column;gap:12px}.score-trace-panel{padding:16px}}
+
+/* ===== Charts ===== */
+.chart-wrap{margin-top:20px;padding:16px;background:var(--bg);border:1px solid var(--border);border-radius:var(--radius)}
+.chart-label{font-size:12px;font-weight:600;color:var(--text-bright);margin-bottom:12px;text-transform:uppercase;letter-spacing:.5px}
+.chart-meta{display:flex;gap:8px;margin-top:8px;font-size:11px;color:var(--text-dim)}
+.chart-note{margin-top:6px;font-size:11px;color:var(--orange);font-style:italic}
+
+/* Milestone Timeline */
+.milestone-wrap{margin-top:20px;padding:16px;background:var(--bg);border:1px solid var(--border);border-radius:var(--radius)}
+.milestone-timeline{padding-left:4px}
+.milestone-item{display:flex;gap:14px;padding-bottom:0}
+.milestone-dot-wrap{display:flex;flex-direction:column;align-items:center;width:20px;flex-shrink:0}
+.milestone-dot{width:12px;height:12px;border-radius:50%;border:2px solid;flex-shrink:0;margin-top:2px}
+.milestone-line{width:2px;flex:1;min-height:28px;margin:4px 0}
+.milestone-body{padding-bottom:18px}
+.milestone-title{font-size:13px;font-weight:600;display:flex;align-items:center}
+.milestone-dates{font-size:11px;color:var(--text-dim);margin-top:2px}
+.milestone-done .milestone-title{color:var(--green)}
+.milestone-delayed .milestone-title{color:var(--orange)}
+
+/* Social Activity Table */
+.social-activity-wrap{margin-top:20px;padding:16px;background:var(--bg);border:1px solid var(--border);border-radius:var(--radius)}
+.social-table{width:100%;font-size:12px}
+.social-table th{font-size:10px;padding:8px 10px;white-space:nowrap}
+.social-table td{padding:10px;vertical-align:middle}
+.social-table .tag{margin:0}
+
+/* DAU Indicator */
+.dau-indicator{margin-top:12px;padding:14px 16px;background:var(--bg);border:1px solid var(--border);border-radius:var(--radius);display:flex;flex-wrap:wrap;align-items:center;gap:20px}
+.dau-stat{display:flex;flex-direction:column}
+.dau-value{font-size:18px;font-weight:700;color:var(--text-bright)}
+.dau-label{font-size:10px;color:var(--text-dim);text-transform:uppercase;letter-spacing:.5px}
+.dau-bar-wrap{flex:1;min-width:120px;height:6px;background:var(--bg-card);border-radius:3px;overflow:hidden}
+.dau-bar-fill{height:100%;border-radius:3px;transition:width .3s}
+.dau-note{width:100%;font-size:11px;color:var(--text-dim);margin-top:4px}

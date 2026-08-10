@@ -3,6 +3,7 @@ import { useParams, Link } from 'react-router-dom'
 import { fetchProject } from '../stubs/api'
 import { computeRiskScores, computeRiskReasons } from '../engine/scoring'
 import RiskBadge, { RiskBar, FlagCard, Section, ScoreTrace } from './Common'
+import { GitHubSparkline, MilestoneTimeline, SocialActivityTable, DAUSparkline } from './Charts'
 
 export default function ProjectDetail() {
   const { id } = useParams()
@@ -189,12 +190,8 @@ function R4Section({ r4, riskLevel }) {
       <div className="info-item"><div className="info-label">Financials</div><div className="info-value">Raised: {r4.financials?.total_raised} · Burn: {r4.financials?.burn_rate} · Runway: {r4.financials?.runway_months}mo</div></div>
       {r4.financials?.treasury_onchain && <div className="info-item"><div className="info-label">Treasury (on-chain)</div><div className="info-value">{r4.financials.treasury_onchain} <span className="tag tag-verified">✓ verified</span></div></div>}
     </div>
-    {r4.roadmap?.length > 0 && <>
-      <div style={{ marginTop: 12 }}><strong style={{ fontSize: 12 }}>Roadmap (self-reported)</strong></div>
-      <table style={{ marginTop: 6 }}><thead><tr><th>Milestone</th><th>Target</th><th>Actual</th><th>Status</th></tr></thead><tbody>
-        {r4.roadmap.map((m, i) => <tr key={i}><td>{m.title}</td><td>{m.target}</td><td>{m.actual || '—'}</td><td><span className={`tag ${m.status === 'completed' ? 'tag-verified' : ''}`}>{m.status}</span></td></tr>)}
-      </tbody></table>
-    </>}
+    {r4.github_activity && <GitHubSparkline data={r4.github_activity} />}
+    {r4.roadmap?.length > 0 && <MilestoneTimeline roadmap={r4.roadmap} />}
   </Section>
 }
 
@@ -209,5 +206,7 @@ function R5Section({ r5, riskLevel }) {
       <div className="info-item"><div className="info-label">Community</div><div className="info-value">Twitter {r5.community?.twitter?.followers?.toLocaleString()} · Discord {r5.community?.discord?.members?.toLocaleString()} · TG {r5.community?.telegram?.members?.toLocaleString()}</div></div>
       <div className="info-item"><div className="info-label">Listing Prefs</div><div className="info-value">{r5.listing_preferences?.program} · FDV {r5.listing_preferences?.target_fdv} · {r5.listing_preferences?.target_date}</div></div>
     </div>
+    {r5.social_activity && <SocialActivityTable data={r5.social_activity} />}
+    {r5.social_activity && <DAUSparkline data={r5.social_activity} />}
   </Section>
 }

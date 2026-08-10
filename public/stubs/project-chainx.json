@@ -20,29 +20,74 @@
   },
   "risk_reasons": {
     "r1_regulatory": [
-      {"severity": "critical", "text": "3 wallets on OFAC SDN list"},
-      {"severity": "high", "text": "No US legal opinion"},
-      {"severity": "medium", "text": "KYC not conducted on purchasers"}
+      {
+        "severity": "critical",
+        "text": "3 wallets on OFAC SDN list"
+      },
+      {
+        "severity": "high",
+        "text": "No US legal opinion"
+      },
+      {
+        "severity": "medium",
+        "text": "KYC not conducted on purchasers"
+      }
     ],
     "r2_fraud": [
-      {"severity": "critical", "text": "14-wallet Sybil cluster"},
-      {"severity": "critical", "text": "Unlimited mint by single EOA"},
-      {"severity": "critical", "text": "No smart contract audit"}
+      {
+        "severity": "critical",
+        "text": "14-wallet Sybil cluster"
+      },
+      {
+        "severity": "critical",
+        "text": "Unlimited mint by single EOA"
+      },
+      {
+        "severity": "critical",
+        "text": "No smart contract audit"
+      }
     ],
     "r3_integrity": [
-      {"severity": "critical", "text": "Single wallet holds 38%"},
-      {"severity": "medium", "text": "45% supply has no lockup"},
-      {"severity": "medium", "text": "Vesting contract not deployed"}
+      {
+        "severity": "critical",
+        "text": "Single wallet holds 38%"
+      },
+      {
+        "severity": "medium",
+        "text": "45% supply has no lockup"
+      },
+      {
+        "severity": "medium",
+        "text": "Vesting contract not deployed"
+      }
     ],
     "r4_viability": [
-      {"severity": "medium", "text": "Team of 8 for L1 blockchain"},
-      {"severity": "medium", "text": "GitHub: moderate activity (67 commits/90d)"},
-      {"severity": "low", "text": "Product: testnet live"}
+      {
+        "severity": "medium",
+        "text": "Team of 8 for L1 blockchain"
+      },
+      {
+        "severity": "medium",
+        "text": "GitHub: moderate activity (67 commits/90d)"
+      },
+      {
+        "severity": "low",
+        "text": "Product: testnet live"
+      }
     ],
     "r5_economics": [
-      {"severity": "info", "text": "Pre-launch — no market presence"},
-      {"severity": "info", "text": "Wintermute confirmed as MM"},
-      {"severity": "info", "text": "Community: 45K Twitter / 28K Discord"}
+      {
+        "severity": "info",
+        "text": "Pre-launch — no market presence"
+      },
+      {
+        "severity": "info",
+        "text": "Wintermute confirmed as MM"
+      },
+      {
+        "severity": "info",
+        "text": "Community: 45K Twitter / 28K Discord"
+      }
     ]
   },
   "flags": [
@@ -53,12 +98,27 @@
       "title": "3 allocation wallets match OFAC SDN list",
       "detail": "Wallets 0xSan1, 0xSan2, and 0xSan3 are declared as 'Ecosystem' in the allocation, but appear on the U.S. OFAC Specially Designated Nationals list.",
       "wallets": [
-        {"address": "0xSan1...", "label": "Ecosystem 1", "sanction": "Tornado Cash-related (SDN, Aug 2022)"},
-        {"address": "0xSan2...", "label": "Ecosystem 2", "sanction": "Lazarus Group-linked (SDN, Apr 2023)"},
-        {"address": "0xSan3...", "label": "Ecosystem 3", "sanction": "Garantex-related (SDN, Apr 2022)"}
+        {
+          "address": "0xSan1...",
+          "label": "Ecosystem 1",
+          "sanction": "Tornado Cash-related (SDN, Aug 2022)"
+        },
+        {
+          "address": "0xSan2...",
+          "label": "Ecosystem 2",
+          "sanction": "Lazarus Group-linked (SDN, Apr 2023)"
+        },
+        {
+          "address": "0xSan3...",
+          "label": "Ecosystem 3",
+          "sanction": "Garantex-related (SDN, Apr 2022)"
+        }
       ],
       "recommendation": "REJECT. Sanctioned wallet involvement is non-negotiable for regulated exchanges.",
-      "screening": {"provider": "Chainalysis", "date": "2026-08-10"}
+      "screening": {
+        "provider": "Chainalysis",
+        "date": "2026-08-10"
+      }
     },
     {
       "id": "f2",
@@ -71,7 +131,10 @@
         "created": "2026-08-01",
         "funding_source": "0xfunder... (Binance withdrawal)",
         "pattern": "All wallets created within 2 hours, identical amounts (0.1 ETH each)",
-        "declared_as": ["Team (6)", "Ecosystem (8)"]
+        "declared_as": [
+          "Team (6)",
+          "Ecosystem (8)"
+        ]
       },
       "recommendation": "REJECT or require complete re-disclosure with verified wallet ownership."
     },
@@ -81,7 +144,13 @@
       "severity": "critical",
       "title": "Unlimited mint by single EOA",
       "detail": "Token contract at 0xCHX... has mint(address,uint256) with onlyOwner modifier. Owner (0xadmin...) is a single EOA that can mint unlimited tokens at any time.",
-      "contract": {"address": "0xCHX...", "chain": "Ethereum", "proxy": "UUPS", "upgrade_control": "0xadmin... (single EOA)", "mint": "unlimited, onlyOwner"},
+      "contract": {
+        "address": "0xCHX...",
+        "chain": "Ethereum",
+        "proxy": "UUPS",
+        "upgrade_control": "0xadmin... (single EOA)",
+        "mint": "unlimited, onlyOwner"
+      },
       "recommendation": "Require multisig or governance control over mint before listing."
     },
     {
@@ -98,7 +167,10 @@
       "severity": "critical",
       "title": "Single wallet holds 38% of total allocation",
       "detail": "Wallet 0xbig... holds 38% of the total token allocation — nearly 2x the acceptable maximum of 25% for a single holder.",
-      "wallet": {"address": "0xbig...", "percentage": 38.0},
+      "wallet": {
+        "address": "0xbig...",
+        "percentage": 38.0
+      },
       "recommendation": "Require diversification or lockup agreement for this wallet."
     },
     {
@@ -115,7 +187,14 @@
       "severity": "high",
       "title": "6 team wallets are fresh (no prior on-chain activity)",
       "detail": "6 of 12 declared team wallets are less than 30 days old with zero ecosystem interaction history. All funded from the same CEX withdrawal source.",
-      "wallets": ["0xNew1...", "0xNew2...", "0xNew3...", "0xNew4...", "0xNew5...", "0xNew6..."],
+      "wallets": [
+        "0xNew1...",
+        "0xNew2...",
+        "0xNew3...",
+        "0xNew4...",
+        "0xNew5...",
+        "0xNew6..."
+      ],
       "recommendation": "Request explanation for wallet freshness. May indicate fabricated team allocation."
     },
     {
@@ -149,18 +228,48 @@
       "status": "flagged",
       "detail": "Screened 48 wallets + 8 team members + 15 investor entities against OFAC, EU, UN sanctions lists via Chainalysis (2026-08-10). Result: 3 wallet matches found.",
       "matches": [
-        {"entity": "0xSan1...", "list": "OFAC SDN", "reason": "Tornado Cash-related", "date": "2022-08"},
-        {"entity": "0xSan2...", "list": "OFAC SDN", "reason": "Lazarus Group-linked", "date": "2023-04"},
-        {"entity": "0xSan3...", "list": "OFAC SDN", "reason": "Garantex-related", "date": "2022-04"}
+        {
+          "entity": "0xSan1...",
+          "list": "OFAC SDN",
+          "reason": "Tornado Cash-related",
+          "date": "2022-08"
+        },
+        {
+          "entity": "0xSan2...",
+          "list": "OFAC SDN",
+          "reason": "Lazarus Group-linked",
+          "date": "2023-04"
+        },
+        {
+          "entity": "0xSan3...",
+          "list": "OFAC SDN",
+          "reason": "Garantex-related",
+          "date": "2022-04"
+        }
       ]
     },
     "legal_opinions": {
       "status": "partial",
       "opinions": [
-        {"firm": "DLA Piper", "jurisdiction": "EU", "topic": "MiCA compliance", "date": "2025-08", "verified": true},
-        {"firm": "Kim & Chang", "jurisdiction": "South Korea", "topic": "Not a security under Korean law", "date": "2025-11", "verified": true}
+        {
+          "firm": "DLA Piper",
+          "jurisdiction": "EU",
+          "topic": "MiCA compliance",
+          "date": "2025-08",
+          "verified": true
+        },
+        {
+          "firm": "Kim & Chang",
+          "jurisdiction": "South Korea",
+          "topic": "Not a security under Korean law",
+          "date": "2025-11",
+          "verified": true
+        }
       ],
-      "missing": ["United States (Howey test)", "Singapore (MAS)"]
+      "missing": [
+        "United States (Howey test)",
+        "Singapore (MAS)"
+      ]
     },
     "token_characteristics": {
       "privacy_enhancing": false,
@@ -198,7 +307,10 @@
         "created": "2026-08-01",
         "funding_source": "0xfunder... (Binance withdrawal)",
         "pattern": "All 14 wallets created within 2 hours. Each received exactly 0.1 ETH. No subsequent transactions.",
-        "declared_as": ["Team (6 wallets)", "Ecosystem (8 wallets)"],
+        "declared_as": [
+          "Team (6 wallets)",
+          "Ecosystem (8 wallets)"
+        ],
         "severity": "critical"
       },
       {
@@ -207,7 +319,10 @@
         "created": "2026-07-28",
         "funding_source": "0xfunder2... (Tornado Cash)",
         "pattern": "4 wallets with obfuscated funding source. Identical creation patterns.",
-        "declared_as": ["Investors (2 wallets)", "Ecosystem (2 wallets)"],
+        "declared_as": [
+          "Investors (2 wallets)",
+          "Ecosystem (2 wallets)"
+        ],
         "severity": "critical"
       }
     ],
@@ -215,9 +330,20 @@
       "deployed": true,
       "chain": "Ethereum",
       "standard": "ERC-20",
-      "proxy": {"type": "UUPS", "upgrade_control": "0xadmin... (single EOA)", "risk": "high"},
-      "mint": {"cap": "unlimited", "access": "onlyOwner (single EOA)", "risk": "critical"},
-      "audit": {"exists": false, "risk": "critical"},
+      "proxy": {
+        "type": "UUPS",
+        "upgrade_control": "0xadmin... (single EOA)",
+        "risk": "high"
+      },
+      "mint": {
+        "cap": "unlimited",
+        "access": "onlyOwner (single EOA)",
+        "risk": "critical"
+      },
+      "audit": {
+        "exists": false,
+        "risk": "critical"
+      },
       "bytecode_verified": false
     },
     "team": {
@@ -236,18 +362,90 @@
         "sybil": 2,
         "unknown": 1,
         "wallets": [
-          {"address": "0xCEO...", "label": "CEO", "entity": "Team", "freshness": "Veteran", "risk": "green"},
-          {"address": "0xCTO...", "label": "CTO", "entity": "Team", "freshness": "Established", "risk": "green"},
-          {"address": "0xLead...", "label": "Lead Dev", "entity": "Unknown", "freshness": "Fresh", "risk": "orange"},
-          {"address": "0xAdv...", "label": "Advisor", "entity": "VC (!)", "freshness": "Recent", "risk": "red"},
-          {"address": "0xNew1...", "label": "Marketing", "entity": "Unknown", "freshness": "Sybil #1", "risk": "red"},
-          {"address": "0xNew2...", "label": "Operations", "entity": "Unknown", "freshness": "Sybil #1", "risk": "red"},
-          {"address": "0xDes...", "label": "Designer", "entity": "Unknown", "freshness": "Fresh", "risk": "orange"},
-          {"address": "0xCom...", "label": "Community", "entity": "Unknown", "freshness": "Recent", "risk": "yellow"},
-          {"address": "0xBiz...", "label": "BD Lead", "entity": "Unknown", "freshness": "Fresh", "risk": "orange"},
-          {"address": "0xLeg...", "label": "Legal", "entity": "Unknown", "freshness": "Established", "risk": "yellow"},
-          {"address": "0xOps1...", "label": "Ops 1", "entity": "Unknown", "freshness": "Fresh", "risk": "orange"},
-          {"address": "0xOps2...", "label": "Ops 2", "entity": "Unknown", "freshness": "Fresh", "risk": "orange"}
+          {
+            "address": "0xCEO...",
+            "label": "CEO",
+            "entity": "Team",
+            "freshness": "Veteran",
+            "risk": "green"
+          },
+          {
+            "address": "0xCTO...",
+            "label": "CTO",
+            "entity": "Team",
+            "freshness": "Established",
+            "risk": "green"
+          },
+          {
+            "address": "0xLead...",
+            "label": "Lead Dev",
+            "entity": "Unknown",
+            "freshness": "Fresh",
+            "risk": "orange"
+          },
+          {
+            "address": "0xAdv...",
+            "label": "Advisor",
+            "entity": "VC (!)",
+            "freshness": "Recent",
+            "risk": "red"
+          },
+          {
+            "address": "0xNew1...",
+            "label": "Marketing",
+            "entity": "Unknown",
+            "freshness": "Sybil #1",
+            "risk": "red"
+          },
+          {
+            "address": "0xNew2...",
+            "label": "Operations",
+            "entity": "Unknown",
+            "freshness": "Sybil #1",
+            "risk": "red"
+          },
+          {
+            "address": "0xDes...",
+            "label": "Designer",
+            "entity": "Unknown",
+            "freshness": "Fresh",
+            "risk": "orange"
+          },
+          {
+            "address": "0xCom...",
+            "label": "Community",
+            "entity": "Unknown",
+            "freshness": "Recent",
+            "risk": "yellow"
+          },
+          {
+            "address": "0xBiz...",
+            "label": "BD Lead",
+            "entity": "Unknown",
+            "freshness": "Fresh",
+            "risk": "orange"
+          },
+          {
+            "address": "0xLeg...",
+            "label": "Legal",
+            "entity": "Unknown",
+            "freshness": "Established",
+            "risk": "yellow"
+          },
+          {
+            "address": "0xOps1...",
+            "label": "Ops 1",
+            "entity": "Unknown",
+            "freshness": "Fresh",
+            "risk": "orange"
+          },
+          {
+            "address": "0xOps2...",
+            "label": "Ops 2",
+            "entity": "Unknown",
+            "freshness": "Fresh",
+            "risk": "orange"
+          }
         ]
       },
       "investors": {
@@ -258,11 +456,41 @@
         "sybil": 2,
         "unknown": 14,
         "wallets": [
-          {"address": "0xVC1...", "label": "VC Fund A", "entity": "VC", "freshness": "Veteran", "risk": "green"},
-          {"address": "0xVC2...", "label": "VC Fund B", "entity": "VC", "freshness": "Veteran", "risk": "green"},
-          {"address": "0xAng...", "label": "Angel C", "entity": "Unknown", "freshness": "Established", "risk": "yellow"},
-          {"address": "0xSyb1...", "label": "Investor D", "entity": "Unknown", "freshness": "Sybil #2", "risk": "red"},
-          {"address": "0xSyb2...", "label": "Investor E", "entity": "Unknown", "freshness": "Sybil #2", "risk": "red"}
+          {
+            "address": "0xVC1...",
+            "label": "VC Fund A",
+            "entity": "VC",
+            "freshness": "Veteran",
+            "risk": "green"
+          },
+          {
+            "address": "0xVC2...",
+            "label": "VC Fund B",
+            "entity": "VC",
+            "freshness": "Veteran",
+            "risk": "green"
+          },
+          {
+            "address": "0xAng...",
+            "label": "Angel C",
+            "entity": "Unknown",
+            "freshness": "Established",
+            "risk": "yellow"
+          },
+          {
+            "address": "0xSyb1...",
+            "label": "Investor D",
+            "entity": "Unknown",
+            "freshness": "Sybil #2",
+            "risk": "red"
+          },
+          {
+            "address": "0xSyb2...",
+            "label": "Investor E",
+            "entity": "Unknown",
+            "freshness": "Sybil #2",
+            "risk": "red"
+          }
         ]
       },
       "ecosystem": {
@@ -274,12 +502,48 @@
         "sanctioned": 3,
         "unknown": 13,
         "wallets": [
-          {"address": "0xSan1...", "label": "Ecosystem 1", "entity": "Sanctioned", "freshness": "Fresh", "risk": "red"},
-          {"address": "0xSan2...", "label": "Ecosystem 2", "entity": "Sanctioned", "freshness": "Fresh", "risk": "red"},
-          {"address": "0xSan3...", "label": "Ecosystem 3", "entity": "Sanctioned", "freshness": "Fresh", "risk": "red"},
-          {"address": "0xSyb3...", "label": "Ecosystem 4", "entity": "Unknown", "freshness": "Sybil #1", "risk": "red"},
-          {"address": "0xSyb4...", "label": "Ecosystem 5", "entity": "Unknown", "freshness": "Sybil #1", "risk": "red"},
-          {"address": "0xSyb5...", "label": "Ecosystem 6", "entity": "Unknown", "freshness": "Sybil #1", "risk": "red"}
+          {
+            "address": "0xSan1...",
+            "label": "Ecosystem 1",
+            "entity": "Sanctioned",
+            "freshness": "Fresh",
+            "risk": "red"
+          },
+          {
+            "address": "0xSan2...",
+            "label": "Ecosystem 2",
+            "entity": "Sanctioned",
+            "freshness": "Fresh",
+            "risk": "red"
+          },
+          {
+            "address": "0xSan3...",
+            "label": "Ecosystem 3",
+            "entity": "Sanctioned",
+            "freshness": "Fresh",
+            "risk": "red"
+          },
+          {
+            "address": "0xSyb3...",
+            "label": "Ecosystem 4",
+            "entity": "Unknown",
+            "freshness": "Sybil #1",
+            "risk": "red"
+          },
+          {
+            "address": "0xSyb4...",
+            "label": "Ecosystem 5",
+            "entity": "Unknown",
+            "freshness": "Sybil #1",
+            "risk": "red"
+          },
+          {
+            "address": "0xSyb5...",
+            "label": "Ecosystem 6",
+            "entity": "Unknown",
+            "freshness": "Sybil #1",
+            "risk": "red"
+          }
         ]
       }
     }
@@ -289,11 +553,41 @@
     "note": "Pre-TGE — most claims unverifiable. Based on self-reported data and contract analysis only.",
     "vesting": {
       "categories": [
-        {"name": "Team", "cliff_months": 12, "vesting_months": 36, "schedule": "linear", "first_unlock": "2027-12"},
-        {"name": "Investors", "cliff_months": 6, "vesting_months": 24, "schedule": "linear", "first_unlock": "2026-09"},
-        {"name": "Treasury", "cliff_months": null, "vesting_months": null, "schedule": "governance", "first_unlock": null},
-        {"name": "Ecosystem", "cliff_months": null, "vesting_months": null, "schedule": "flexible", "first_unlock": null},
-        {"name": "Liquidity", "cliff_months": null, "vesting_months": null, "schedule": "immediate", "first_unlock": "TGE"}
+        {
+          "name": "Team",
+          "cliff_months": 12,
+          "vesting_months": 36,
+          "schedule": "linear",
+          "first_unlock": "2027-12"
+        },
+        {
+          "name": "Investors",
+          "cliff_months": 6,
+          "vesting_months": 24,
+          "schedule": "linear",
+          "first_unlock": "2026-09"
+        },
+        {
+          "name": "Treasury",
+          "cliff_months": null,
+          "vesting_months": null,
+          "schedule": "governance",
+          "first_unlock": null
+        },
+        {
+          "name": "Ecosystem",
+          "cliff_months": null,
+          "vesting_months": null,
+          "schedule": "flexible",
+          "first_unlock": null
+        },
+        {
+          "name": "Liquidity",
+          "cliff_months": null,
+          "vesting_months": null,
+          "schedule": "immediate",
+          "first_unlock": "TGE"
+        }
       ],
       "contract_deployed": false,
       "gap": "Vesting contract not yet deployed — cannot verify enforcement pre-TGE."
@@ -308,14 +602,44 @@
       "status": "flagged_all"
     },
     "supply_controls": {
-      "burn": {"type": "transaction_fee", "rate": "0.1%", "verified": true},
-      "inflation": {"rate": "2.0%", "mechanism": "staking_rewards", "governance_controlled": true, "verified": true},
-      "mint": {"capped": true, "cap": "MAX_SUPPLY (1B)", "access": "onlyOwner (single EOA)", "risk": "owner can mint up to cap", "verified": true}
+      "burn": {
+        "type": "transaction_fee",
+        "rate": "0.1%",
+        "verified": true
+      },
+      "inflation": {
+        "rate": "2.0%",
+        "mechanism": "staking_rewards",
+        "governance_controlled": true,
+        "verified": true
+      },
+      "mint": {
+        "capped": true,
+        "cap": "MAX_SUPPLY (1B)",
+        "access": "onlyOwner (single EOA)",
+        "risk": "owner can mint up to cap",
+        "verified": true
+      }
     },
     "unlock_calendar": [
-      {"date": "2026-09", "tokens": "50,000,000", "pct": "5.0%", "category": "Investors"},
-      {"date": "2026-12", "tokens": "25,000,000", "pct": "2.5%", "category": "Team"},
-      {"date": "2027-03", "tokens": "25,000,000", "pct": "2.5%", "category": "Team"}
+      {
+        "date": "2026-09",
+        "tokens": "50,000,000",
+        "pct": "5.0%",
+        "category": "Investors"
+      },
+      {
+        "date": "2026-12",
+        "tokens": "25,000,000",
+        "pct": "2.5%",
+        "category": "Team"
+      },
+      {
+        "date": "2027-03",
+        "tokens": "25,000,000",
+        "pct": "2.5%",
+        "category": "Team"
+      }
     ],
     "dump_risk": {
       "team_cliff": "12 months — no immediate risk",
@@ -359,13 +683,92 @@
       "treasury_onchain": "$1,200,000 in stables"
     },
     "roadmap": [
-      {"title": "Testnet Launch", "target": "2026-01", "actual": "2026-02", "status": "completed"},
-      {"title": "Mainnet Launch", "target": "2026-09", "actual": null, "status": "planned"},
-      {"title": "EVM Compatibility", "target": "2027-01", "actual": null, "status": "planned"}
+      {
+        "title": "Testnet Launch",
+        "target": "2026-01",
+        "actual": "2026-02",
+        "status": "completed"
+      },
+      {
+        "title": "Mainnet Launch",
+        "target": "2026-09",
+        "actual": null,
+        "status": "planned"
+      },
+      {
+        "title": "EVM Compatibility",
+        "target": "2027-01",
+        "actual": null,
+        "status": "planned"
+      }
     ],
     "partnerships": [
-      {"name": "Chainlink", "type": "oracle", "announced": "2026-03", "url_verified": true}
-    ]
+      {
+        "name": "Chainlink",
+        "type": "oracle",
+        "announced": "2026-03",
+        "url_verified": true
+      }
+    ],
+    "github_activity": {
+      "commits_per_week": [
+        8,
+        12,
+        6,
+        15,
+        10,
+        7,
+        14,
+        9,
+        11,
+        5,
+        13,
+        8
+      ],
+      "contributors_per_week": [
+        3,
+        2,
+        3,
+        4,
+        3,
+        2,
+        4,
+        3,
+        3,
+        2,
+        4,
+        3
+      ],
+      "lines_changed_per_week": [
+        340,
+        520,
+        180,
+        890,
+        420,
+        210,
+        670,
+        380,
+        450,
+        150,
+        560,
+        310
+      ],
+      "weeks": [
+        "W21",
+        "W22",
+        "W23",
+        "W24",
+        "W25",
+        "W26",
+        "W27",
+        "W28",
+        "W29",
+        "W30",
+        "W31",
+        "W32"
+      ],
+      "note": "Activity spike in W24 (890 lines) corresponds to testnet launch prep. Low W30 (150 lines) — summer slowdown?"
+    }
   },
   "r5_economics": {
     "risk": "info",
@@ -377,12 +780,26 @@
       "note": "Pre-launch — no market presence yet."
     },
     "market_makers": [
-      {"name": "Wintermute", "wallet_verified": true, "commitment": "24/7 market making on CEX venues (claimed)"}
+      {
+        "name": "Wintermute",
+        "wallet_verified": true,
+        "commitment": "24/7 market making on CEX venues (claimed)"
+      }
     ],
     "community": {
-      "twitter": {"handle": "@chainx_io", "followers": 45000, "verified": true},
-      "discord": {"members": 28000, "verified": true},
-      "telegram": {"members": 35000, "verified": true}
+      "twitter": {
+        "handle": "@chainx_io",
+        "followers": 45000,
+        "verified": true
+      },
+      "discord": {
+        "members": 28000,
+        "verified": true
+      },
+      "telegram": {
+        "members": 35000,
+        "verified": true
+      }
     },
     "listing_preferences": {
       "program": "Direct Listing",
@@ -397,6 +814,34 @@
       "kol_count": 5,
       "referral_program": true,
       "staking_rewards": true
+    },
+    "social_activity": {
+      "twitter": {
+        "handle": "@chainx_io",
+        "followers": 45000,
+        "followers_verified": true,
+        "daily_posts_avg": 8.2,
+        "daily_engagement_avg": 340,
+        "engagement_rate_pct": 0.76,
+        "follower_growth_30d": 3200,
+        "suspicious_followers_pct": 12.3,
+        "note": "12.3% followers flagged as bot/suspicious — above 10% threshold"
+      },
+      "discord": {
+        "members": 28000,
+        "members_verified": true,
+        "daily_messages_avg": 320,
+        "daily_active_users_avg": 850,
+        "member_growth_30d": 1500,
+        "verified": false
+      },
+      "telegram": {
+        "members": 35000,
+        "members_verified": false,
+        "daily_messages_avg": 180,
+        "member_growth_30d": 4200,
+        "note": "Telegram member count self-reported — 30d growth (4200) inconsistent with Twitter growth (3200)"
+      }
     }
   }
 }
